@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outerbox{
+            height: 500px;
+            width: 800px;
+            border:2px solid black;
+            margin: auto;
+        }
+        #innerbox{
+            height: 350px;
+            /* border:2px solid black; */
+        
+        }
+        #subdiv{
+            height: 110px;
+            width: 185px;  
+            /* border:2px solid black; */
+            margin: 5px;
+            float: left;
+
+        }
+        #bigimg{
+            height: 350px;
+            width: 800px;
+        }
+        #smallimg{
+            height: 110px;
+            width: 185px;
+        }
+    </style>
+    <script>
+        function swapimage(smallimg ){
+            var bigimg=document.getElementById("bigimg");
+            var temp=bigimg.src;
+            bigimg.src=smallimg.src;
+            smallimg.src=temp;
+
+        }
+    </script>
+</head>
+<body>
+     <div id="outerbox">
+        <div id="innerbox">
+            <img src="imges/wallpaper3.jpg" alt="" id="bigimg">
+        </div>
+        <hr>
+        <div id="subdiv">
+            <img src="imges/wallpaper1.jpg" alt="" id="smallimg" onclick="swapimage(this)">
+        </div>
+        <div id="subdiv">
+            <img src="imges/wallpaper2.jpg" alt="" id="smallimg" onclick="swapimage(this)">
+        </div>
+        <div id="subdiv">
+            <img src="imges/wallpaper5.jpg" alt="" id="smallimg" onclick="swapimage(this)">
+        </div>
+        <div id="subdiv">
+            <img src="imges/wallpaper4.jpg" alt="" id="smallimg" onclick="swapimage(this)">
+        </div>
+     </div>
+</body>
+</html>

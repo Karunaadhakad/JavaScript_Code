@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            margin:auto ;
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+ 
+    <script>
+        function zoomin() {
+         var img=document.getElementById("img");
+         var currheight=img.height;
+         img.style.height=(currheight+40)+"px";
+         var currwidth=img.width;
+         img.style.width=(currwidth+40)+"px";
+        }
+        function zoomout() {
+           var img = document.getElementById("img");
+           var currHeight = img.height;
+            img.style.height = (currHeight - 40) + "px";
+            var currwidth = img.width;
+            img.style.width = (currwidth - 40) + "px";
+        } 
+         
+    </script>
+</head>
+<body>
+    <div id="container">
+    <div>
+        <img src="imges/wallpaper3.jpg"  id="img" height="300px" width="300px" alt="">
+    </div>
+ 
+    <button type="button" onclick="zoomin()">Zoom-In</button>
+ 
+    <button type="button" onclick="zoomout()">Zoom-Out</button>
+
+    
+</div>
+</body>
+</html>

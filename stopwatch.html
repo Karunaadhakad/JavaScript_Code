@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: candara;
+        }
+        #outerDiv{
+            height:300px;
+            width:600px;
+            background-color: darkslategrey;
+            color:white;
+            margin: auto;
+            /* display: flex;
+            align-items: center; */
+        }
+        #div1{
+            text-align: center;
+            margin-top: 30px;
+            font-size: 30px;
+        }
+        #div2{
+            text-align: center;
+            margin-top: 10px;
+            font-size: 40px;
+        }
+        #div3{
+            text-align: center;
+            margin-top: 10px;
+        }
+        button{
+            margin-top: 30px;
+            font-size: 23px;
+            width: 150px;
+        }
+
+</style>
+</head>
+<body>
+    <center>
+        <h1>StopWatch</h1>
+    </center>
+    <div id="outerDiv">
+        <br>
+        <div id="div1">
+            <span id="heading">Min  &nbsp;:  &nbsp;</span>
+            <span id="heading">Sec  &nbsp;:  &nbsp;</span>
+            <span id="heading">Milli </span>
+        </div>
+        <div id="div2">
+            <span id="min">00  &nbsp;:  &nbsp;</span>
+            <span id="sec">00  &nbsp;:  &nbsp;</span>
+            <span id="milli">00 </span>
+        </div>
+        <div id="div3">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        var reset = document.getElementById("reset");
+        var min = document.getElementById("min");
+        var sec = document.getElementById("sec");
+        var milli = document.getElementById("milli");
+        
+        var millicount=0,seccount=0,mincount=0,watch;
+        start.addEventListener("click",()=>{
+            watch=true;
+            stopwatch(); 
+            start.innerHTML="start"; 
+            stop.innerHTML="stop";   
+        });
+        reset.addEventListener("click",()=>{
+            watch=false;
+            milli.innerHTML="00";
+            sec.innerHTML="00" + "&nbsp;:  &nbsp";
+            min.innerHTML="00" + "&nbsp;:  &nbsp";
+            millicount=0;
+            seccount=0;
+            mincount=0;
+            start.innerHTML="start";
+            stop.innerHTML="stop";
+
+        });
+        stop.addEventListener("click",()=>{
+            watch=false;
+            start.innerHTML="Resume"; 
+            stop.innerHTML="Pause";
+
+        });
+
+        
+        function stopwatch(){
+            if(watch){
+                millicount++;
+                if(millicount==99){
+                    seccount++;
+                    millicount=0;
+                }
+                if(seccount==59){
+                    mincount++;
+                    seccount=0;
+                    millicount=0;
+                }
+                milli.innerHTML=millicount;
+                sec.innerHTML=(seccount<10)? ("0"+seccount+"&nbsp;:&nbsp;") : seccount+"&nbsp;:&nbsp;";
+
+                setTimeout(stopwatch,10);
+            }
+        }
+    </script>
+</body>
+</html>
